@@ -2,18 +2,13 @@ html {
     scroll-behavior: smooth;  /* smooth scrolling */
 }
 
-html, body {
-  height: 100%;
-  width: 100%;
-}
-
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; /* includes padding in width */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* includes padding in width */
 }
 
-body, p, div, li, span, a, input, textarea, button {
+body {
     font-family: Georgia;
     text-align: left;
     font-size: large;
@@ -46,24 +41,23 @@ body, p, div, li, span, a, input, textarea, button {
     text-decoration: underline;
 }
 
-/* Sections */
-.container {
-    display:grid;
-    grid-template-rows: repeat(4, 100vh); /* full screen rows */
-}
-
-.tab {
-    display:flex;
+/* General fix for all sections */
+.intro, .menu, .about, .contact {
+    min-height: 100vh;               /* full viewport height */
+    width: 100%;
+    background-size: cover;           /* cover the section */
+    background-position: center;      /* center image */
+    background-repeat: no-repeat;     /* no repeat */
+    justify-content: center;          /* vertically center content */
+    align-items: center;              /* horizontally center content */
 }
 
 /* Info section */
 .intro {
-    position: relative;
+    /* position: relative; */
     background-image: url('img/sl-cafe-bg-01.jpg');
     display: flex;
-    flex-direction: column;      /* stack divs vertically */
-    align-items: center;         /* center divs horizontally */
-    justify-content: center;
+    flex-direction: column;
     gap: 1em;
 }
 
@@ -72,7 +66,6 @@ body, p, div, li, span, a, input, textarea, button {
     width: 40%; 
     height: auto;                /* adjusts height based on text */
     padding: 1em;                /* spacing inside the div */
-    display: inline-block;       /* shrink-to-fit behavior */
     text-align: center;          /* center text inside each div */
 }
 
@@ -96,7 +89,6 @@ p {
 
 /* Menu Section */
 .menu {
-    position: relative;
     background-image: url('img/sl-cafe-bg-02.jpg');
     display: grid;
     grid-template-columns: 1fr 1fr; /* two equal columns */
@@ -113,10 +105,11 @@ p {
 .menu .header {
     display: flex;
     justify-self: center;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     grid-column: 1 / span 2;       /* spans both columns */
     width: 30%;
+    height: 100%;
     background: #fff !important;
 }
 
@@ -135,13 +128,9 @@ p {
 
 /* About Section */
 .about {
-    position: relative;
     background-image: url('img/sl-cafe-bg-03.jpg');
-    min-height: 100vh;   /* full screen height */
     display: grid;
     grid-template-columns: 1fr 1fr; /* 50% / 50% */
-    justify-content: center;
-    align-items: center;
 }
 
 .about > div {
@@ -152,7 +141,6 @@ p {
     font-size: large;
     justify-self: center;
     align-self: center;
-    margin: 0;
     border-radius: 2em;
     padding: 2em;
 }
@@ -160,13 +148,10 @@ p {
 /* Contact Section */
 .contact {
     padding-top: 120px;
-    position: relative; /* Make footer absolute relative to Contact section */
     background-image: url('img/sl-cafe-bg-04.jpg');
     display: grid;
     grid-template-columns: 1fr 1fr; /* two equal columns */
     grid-template-rows: auto auto; 
-    justify-content: center;
-    align-items: center;
 }
 
 .contact > div {
@@ -210,14 +195,12 @@ textarea {
 }
 
 button {
-    border:#CC9966;
+    border: 2px solid #CC9966;
     background: #CC9966;
 }
 
 .footer {
     grid-column: 1 / span 2;       /* spans both columns */
-    bottom: 0;          /* stick to bottom */
-    left: 0;
     width: 100%;        /* full width */
     display: flex;
     justify-content: center;
