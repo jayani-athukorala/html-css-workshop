@@ -83,7 +83,34 @@ p {
 
 /* Menu Section */
 .menu {
+    position: relative;
     background-image: url('img/sl-cafe-bg-02.jpg');
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* two equal columns */
+    grid-template-rows: auto auto;  /* first row auto for header, second for items */
+}
+
+/* make header span both columns */
+.menu .header {
+    justify-self: center;
+    margin-top: 80px;
+    width: 30%;
+    max-height: 80px;
+    grid-column: 1 / span 2;       /* spans both columns */
+    background: #fff !important;
+}
+
+.menu .header h1 {
+    color: black;
+}
+
+.menu > div {
+    background: #544639;
+    width: 60%;   /* fills grid column */
+    font-size: larger;
+    justify-self: center;
+    color: #fff;
+    margin: 0;
 }
 
 .about {
