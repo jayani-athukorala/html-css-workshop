@@ -7,6 +7,11 @@ html, body {
   width: 100%;
 }
 
+body, p, div, li, span, a, input, textarea, button {
+    font-family: Georgia;
+    text-align: left;
+    font-weight: bold;
+}
 
 /* Fixed Navbar */
 .navbar {
@@ -20,7 +25,6 @@ html, body {
     justify-content: flex-end;
     align-items: center;
     z-index: 9999; /* navbar stays on top */
-    padding: 0 20px;
 }
 
 .nav-link {
@@ -77,7 +81,7 @@ h2 {
 }
 
 p {
-    font-size: x-large;
+    font-size: large;
     color: #fff;
 }
 
@@ -88,19 +92,23 @@ p {
     display: grid;
     grid-template-columns: 1fr 1fr; /* two equal columns */
     grid-template-rows: auto auto;  /* first row auto for header, second for items */
+    padding-top: 90px;
+}
+
+.menu-items {
+    height: max-content;
 }
 
 /* make header span both columns */
 .menu .header {
     justify-self: center;
-    margin-top: 80px;
-    width: 30%;
-    max-height: 80px;
     grid-column: 1 / span 2;       /* spans both columns */
+    width: 30%;
     background: #fff !important;
+    max-height: 65px;
 }
 
-.menu .header h1 {
+.menu .header h2 {
     color: black;
 }
 
@@ -110,22 +118,92 @@ p {
     font-size: larger;
     justify-self: center;
     color: #fff;
-    margin: 0;
+    padding: 5px;
 }
 
+/* About Section */
 .about {
+    position: relative;
     background-image: url('img/sl-cafe-bg-03.jpg');
+    min-height: 100vh;   /* full screen height */
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 50% / 50% */
+    justify-content: center;
+    align-items: center;
+}
+
+.about > div {
+    grid-column: 2;   /* move content to second half */
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    width: 60%;   /* fills grid column */
+    font-size: larger;
+    justify-self: center;
+    align-self: center;
+    margin: 0;
+    border-radius: 2em;
+    padding: 2em;
 }
 
 /* Contact Section */
 .contact {
+    padding-top: 120px;
     position: relative; /* Make footer absolute relative to Contact section */
     background-image: url('img/sl-cafe-bg-04.jpg');
-    background-size: cover;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* two equal columns */
+    grid-template-rows: auto auto; 
+    justify-content: center;
+    align-items: center;
+}
+
+.contact > div {
+    width: 60%;   /* fills grid column */
+    font-size: larger;
+    justify-self: center;
+    margin: 0;
+    min-height: 60%;
+    border-radius: 2em;
+    padding: 3em;
+}
+
+.contact-items > p, h3 {
+    color: rgba(0, 0, 0, 0.7) !important;
+}
+
+#email-form {
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+}
+
+#contact-us {
+    background: rgba(254, 254, 254, 0.7);
+}
+
+input, textarea {
+    border: none;                 /* remove all borders */
+    border-bottom: 2px solid #CC9966;  /* keep only bottom border */
+    outline: none;                /* remove blue outline */
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-color: #CC9966;
+}
+
+input {
+    height: 50px;
+}
+
+textarea {
+    height: 150px;
+}
+
+button {
+    border:#CC9966;
+    background: #CC9966;
 }
 
 .footer {
-    position: absolute; /* position relative to .contact */
+    grid-column: 1 / span 2;       /* spans both columns */
     bottom: 0;          /* stick to bottom */
     left: 0;
     width: 100%;        /* full width */
