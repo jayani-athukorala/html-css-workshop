@@ -9,9 +9,8 @@ html {
 }
 
 body {
-    font-family: Georgia;
+    font-family: 'Roboto', Arial, sans-serif;
     text-align: left;
-    font-size: large;
 }
 
 /* Fixed Navbar */
@@ -31,7 +30,7 @@ body {
 
 .nav-link {
     color: #CC9966;
-    font-size:x-large;
+    font-size: large;
     font-weight: bold;
     width: 100px;
     text-decoration: none;   /* remove default underline */
@@ -41,76 +40,84 @@ body {
     text-decoration: underline;
 }
 
-/* General fix for all sections */
+/* Fonts */
+h1 {
+    font-family: 'Oswald', sans-serif;
+    color: #fff;
+    text-align: center;
+    font-size: clamp(32px, 6vw, 48px);
+}
+
+h2 {
+    color: #CC9966;
+    font-size: clamp(20px, 4vw, 24px);
+    text-align: center;
+}
+
+p {
+    font-size: clamp(14px, 2.5vw, 16px);
+    color: #f2f2f2;
+}
+
+/* General format for all sections */
 .intro, .menu, .about, .contact {
     min-height: 100vh;               /* full viewport height */
     width: 100%;
     background-size: cover;           /* cover the section */
     background-position: center;      /* center image */
     background-repeat: no-repeat;     /* no repeat */
-    justify-content: center;          /* vertically center content */
-    align-items: center;              /* horizontally center content */
+}
+
+.intro > div,
+.menu > div,
+.about > div,
+.contact > div {
+    width: min(90%, 500px);
+    border-radius: 2em;
+    padding: 3em;
+}
+
+img {
+  max-width: 100%;
 }
 
 /* Info section */
 .intro {
-    /* position: relative; */
     background-image: url('img/sl-cafe-bg-01.jpg');
     display: flex;
     flex-direction: column;
     gap: 1em;
+    justify-content: center;          /* vertically center content */
+    align-items: center;              /* horizontally center content */
 }
 
 .intro > div {
     background: rgba(0, 0, 0, 0.7);
-    width: 40%; 
-    height: auto;                /* adjusts height based on text */
     padding: 1em;                /* spacing inside the div */
     text-align: center;          /* center text inside each div */
 }
 
-h1 {
-    font-family: 'Oswald', sans-serif;
-    color: #fff;
-    text-align: center;
-    font-size: 50px;
-}
-
-h2 {
-    color: #CC9966;
-    font-size: x-large;
-    text-align: center;
-}
-
-p {
-    font-size: large;
-    color: #fff;
+.menu,
+.about,
+.contact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
 }
 
 /* Menu Section */
 .menu {
     background-image: url('img/sl-cafe-bg-02.jpg');
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* two equal columns */
-    grid-template-rows: auto auto;  /* first row auto for header, second for items */
-    padding-top: 90px;
-    grid-gap :1em;
-}
-
-.menu-items {
-    height: max-content;
+    padding-top: 80px;
 }
 
 /* make header span both columns */
 .menu .header {
-    display: flex;
-    justify-self: center;
+    grid-column: 1 / -1; /* spans all columns */
+    margin: 0 auto;
+    background: #fff;
     justify-content: center;
-    align-items: center;
-    grid-column: 1 / span 2;       /* spans both columns */
-    width: 30%;
-    height: 100%;
-    background: #fff !important;
+    padding: 1em;
 }
 
 .menu .header h2 {
@@ -119,53 +126,41 @@ p {
 
 .menu > div {
     background: #544639;
-    width: 60%;   /* fills grid column */
-    font-size: larger;
     justify-self: center;
     color: #fff;
-    padding: 5px;
+    padding: 5px 0 5px 3em;
+}
+
+.menu-items {
+    height: max-content;
 }
 
 /* About Section */
 .about {
     background-image: url('img/sl-cafe-bg-03.jpg');
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* 50% / 50% */
 }
 
 .about > div {
     grid-column: 2;   /* move content to second half */
     background: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    width: 60%;   /* fills grid column */
-    font-size: large;
+    color: #f2f2f2;
     justify-self: center;
     align-self: center;
-    border-radius: 2em;
-    padding: 2em;
 }
 
 /* Contact Section */
 .contact {
-    padding-top: 120px;
     background-image: url('img/sl-cafe-bg-04.jpg');
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* two equal columns */
-    grid-template-rows: auto auto; 
+    padding: 80px 1em 40px 1em;
+    align-items: stretch;
 }
 
 .contact > div {
-    width: 70%;   /* fills grid column */
-    font-size: larger;
     justify-self: center;
-    margin: 0;
-    min-height: 60%;
-    border-radius: 2em;
-    padding: 3em;
 }
 
-.contact-items > p, h3 {
-    color: rgba(0, 0, 0, 0.7) !important;
+.contact-items > p {
+    color: rgba(0, 0, 0, 0.8) !important;
 }
 
 #email-form {
@@ -195,8 +190,13 @@ textarea {
 }
 
 button {
-    border: 2px solid #CC9966;
-    background: #CC9966;
+    font-size: large;
+    background: transparent;
+    color: #f2f2f2;
+}
+
+button:hover {
+    color: #CC9966;
 }
 
 .footer {
@@ -204,6 +204,6 @@ button {
     width: 100%;        /* full width */
     display: flex;
     justify-content: center;
-    font-size: large;
+    align-items: end;
     color: #fff;
 }
